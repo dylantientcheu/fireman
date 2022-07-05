@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "lib": ["ESNext"],
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "resolveJsonModule": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "target": "es6",
+    "esModuleInterop": true,
+    "types": [ "node" ],
+    "declaration": true
+  },
+  "compileOnSave": true,
+  "include": [
+    "src"
+  ]
+}
