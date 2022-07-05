@@ -5,7 +5,7 @@
     "noImplicitAny": false,
     "noImplicitReturns": true,
     "resolveJsonModule": true,
-    "outDir": "lib",
+    "outDir": "dist",
     "sourceMap": true,
     "target": "es6",
     "esModuleInterop": true,
