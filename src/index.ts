@@ -1,3 +1,1 @@
-import * as firemanFns from './fireman'
-
-export const fireman = firemanFns;
+export * from './fireman'

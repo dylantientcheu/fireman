@@ -18,13 +18,13 @@ import {
 	deleteDoc,
 } from "firebase/firestore";
 
-interface FiremanWhere {
+type FiremanWhere =  {
 	field: string | FieldPath;
 	op: WhereFilterOp;
 	val: unknown;
 }
 
-interface FiremanOrderBy {
+type FiremanOrderBy = {
 	field: string | FieldPath;
 	dir: OrderByDirection;
 }
@@ -36,7 +36,6 @@ interface FiremanQuery {
 	orderByArray?: FiremanOrderBy[];
 	limitDocs?: number;
 }
-
 /**
  * Get data from Firestore, it could be a single document or a collection of documents. You can also filter by adding queries in the `whereArray` and `orderBy` attribute.
  * @param db {@link Firestore} instance
@@ -125,11 +124,11 @@ export const addDocument = async (
 ) => {
 	if (docId) {
 		const docRef = doc(db, collectionId!, docId!);
-		if (options) await setDoc(docRef, data, options);
-		else await setDoc(docRef, data);
+		if (options) return await setDoc(docRef, data, options);
+		else return await setDoc(docRef, data);
 	} else {
 		const docRef = doc(db, collectionId!);
-		await setDoc(docRef, data);
+		return await setDoc(docRef, data);
 	}
 };
 
@@ -147,7 +146,7 @@ export const updateDocument = async (
 	data: any
 ) => {
 	const docRef = doc(db, collectionId!, docId);
-	await updateDoc(docRef, data);
+	return await updateDoc(docRef, data);
 };
 
 /**
