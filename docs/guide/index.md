@@ -1,7 +1,7 @@
 # Getting started
 
-<div class="flex mt-12 justify-center">
-  <img src="/logo-hor.svg" alt="Fireman logo" >
+<div style="display: flex; justify-content: center">
+  <img style="width: 300px" src="/logo.svg" alt="Fireman logo" >
 </div>
 
 Fireman is a simple, yet powerful, wrapper around the firestore SDK providing firestore helper functions. It is a wrapper around the firestore SDK (soon the firestore admin sdk too).
@@ -31,8 +31,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 
-// Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
+// Initialize Cloud Firestore and get a reference to the service, you should export it in case you need to access it elsewhere.
+export const db = getFirestore(app);
   ```
 
   You may [follow instructions on the Firebase docs](https://firebase.google.com/docs/firestore/quickstart#initialize) to initialize Firestore

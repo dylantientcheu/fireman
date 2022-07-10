@@ -1,30 +1,34 @@
 import { defineConfig } from "vitepress";
 
 const defaultSidebar = [
-				{
-					text: "Guide",
-					items: [
-						{ text: "Getting started", link: "/guide/" },
-						{
-							text: "Initializing Firestore",
-							link: "/guide/#firestore-instance",
-						},
-					],
-				},
-				{
-					text: "Firestore",
-					items: [
-						{ text: "Get documents", link: "/usage/#get" },
-						{ text: "Add & update documents", link: "usage/#add" },
-						{ text: "Delete documents", link: "/usage/#delete" },
-					],
-				},
-			]
+	{
+		text: "Guide",
+		items: [
+			{ text: "Getting started", link: "/guide/" },
+			{
+				text: "Initializing Firestore",
+				link: "/guide/#firestore-instance",
+			},
+		],
+	},
+	{
+		text: "Firestore",
+		items: [
+			{
+				text: "Querying documents",
+				link: "/usage/#get-documents",
+			},
+			{ text: "Add documents", link: "/usage/#add-documents" },
+			{ text: "Update documents", link: "usage/#update-documents" },
+			{ text: "Delete documents", link: "/usage/#delete-documents" },
+		],
+	},
+];
 
 export default defineConfig({
 	title: "Fireman",
 	description: "Firestore helper functions.",
-	logo: "/logo.svg",
+
 	head: [
 		["meta", { property: "og:title", content: "Fireman" }],
 		["meta", { property: "og:site_name", content: "Fireman" }],
@@ -48,17 +52,20 @@ export default defineConfig({
 	],
 
 	themeConfig: {
+		logo: "/logo.svg",
 		nav: [
 			{ text: "Guide", link: "/guide/" },
 			{ text: "Usage", link: "/usage/" },
 		],
 		sidebar: {
 			"/guide/": defaultSidebar,
-      "/usage/": defaultSidebar,
+			"/usage/": defaultSidebar,
 		},
 		footer: {
 			message: "Released under the MIT License.",
-			copyright: "Copyright © 2022 Dylan Tientcheu",
 		},
+		socialLinks: [
+			{ icon: "github", link: "https://github.com/blurdylan/fireman" },
+		],
 	},
 });
