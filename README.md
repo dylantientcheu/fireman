@@ -25,9 +25,9 @@ Querying is done with a single interface, easily get documents from your firesto
 
 The API is predictable and consistent, making it easy to intergrate.
 
-### 🔥 Coming soon
+### 🔥 Extensive
 
- Covers both Firestore and Firestore Admin SDKs
+ Covers both Firestore and Firestore Admin SDKs (coming soon)
 
 ## Installation
 
