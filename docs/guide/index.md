@@ -4,7 +4,7 @@
   <img style="width: 300px" src="/logo.svg" alt="Fireman logo" >
 </div>
 
-Fireman is a simple, yet powerful, wrapper around the firestore SDK providing firestore helper functions. It is a wrapper around the firestore SDK (soon the firestore admin sdk too).
+Fireman is a simple, yet powerful, wrapper around the firestore SDK providing firestore helper functions. (soon the firestore admin sdk too).
 It provides a simple interface to get, update and delete data from your firestore instance.
 
 ## Installation

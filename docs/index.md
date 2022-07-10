@@ -23,7 +23,7 @@ features:
     details: Querying is done with a single interface, easily get documents from your firestore instance.
   - icon: 🧑‍🚒
     title: Consistent
-    details: The API is predictable and consistent, making it easy to intergrate.
+    details: The API is predictable and consistent, making it easy to integrate.
   - icon: 🔥
     title: Covers both Firestore and Firestore Admin SDKs
     details: Coming soon
