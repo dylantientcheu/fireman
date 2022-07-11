@@ -3,7 +3,7 @@
 </div>
 
 <p align="center">
-  <img style="width: 144px" src="./docs/public/logo.svg" alt="Fireman logo" >
+  <img style="width: 144px" src="https://fireman-fns.netlify.app/logo.svg" alt="Fireman logo" >
 </p>
 
 <h1 align="center">Fireman</h1>
