@@ -1,12 +1,12 @@
 {
   "name": "fireman-fns",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Comprehensive firestore helper functions",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "lint": "tslint --project tsconfig.json",
-    "build": "tsc && npm run minify",
+    "build": "tsc",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
@@ -28,7 +28,8 @@
   "homepage": "https://fireman-fns.netlify.app/",
   "license": "MIT",
   "dependencies": {
-    "firebase": "^9.8.4"
+    "firebase": "^9.8.4",
+    "firebase-admin": "^11.0.0"
   },
   "publishConfig": {
     "access": "public"
