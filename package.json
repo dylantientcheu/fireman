@@ -1,9 +1,9 @@
 {
-  "name": "fireman",
+  "name": "fireman-fns",
   "version": "0.1.0",
   "description": "Comprehensive firestore helper functions",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "build": "tsc && npm run minify",
@@ -15,16 +15,17 @@
     "firestore",
     "firebase",
     "helper",
-    "firestore",
-    "helper",
-    "functions",
-    "firestore",
-    "heler"
+    "functions"
   ],
   "engines": {
     "node": ">=14"
   },
-  "author": "dylantientcheu@gmail.com",
+  "author": {
+    "name": "Dylan Tientcheu",
+    "email": "dylantientcheu@gmail.com",
+    "url": "http://dylantientcheu.dev"
+  },
+  "homepage": "https://fireman-fns.netlify.app/",
   "license": "MIT",
   "dependencies": {
     "firebase": "^9.8.4"
@@ -32,8 +33,12 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "dist/*"
+  ],
   "packageManager": "yarn@3.2.1",
   "devDependencies": {
+    "typescript": "^4.7.4",
     "vitepress": "^1.0.0-alpha.4",
     "vue": "^3.2.37"
   }
