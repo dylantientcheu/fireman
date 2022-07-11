@@ -16,18 +16,19 @@ import {
 	setDoc,
 	SetOptions,
 	deleteDoc,
+	addDoc,
 } from "firebase/firestore";
 
-type FiremanWhere =  {
+type FiremanWhere = {
 	field: string | FieldPath;
 	op: WhereFilterOp;
 	val: unknown;
-}
+};
 
 type FiremanOrderBy = {
 	field: string | FieldPath;
 	dir: OrderByDirection;
-}
+};
 
 interface FiremanQuery {
 	collectionId: string;
@@ -119,7 +120,7 @@ export const addDocument = async (
 	db: Firestore,
 	collectionId: string,
 	data: any,
-	docId: string | null = null,
+	docId: string | undefined = undefined,
 	options?: SetOptions
 ) => {
 	if (docId) {
@@ -127,8 +128,8 @@ export const addDocument = async (
 		if (options) return await setDoc(docRef, data, options);
 		else return await setDoc(docRef, data);
 	} else {
-		const docRef = doc(db, collectionId!);
-		return await setDoc(docRef, data);
+		const colRef = collection(db, collectionId!);
+		return await addDoc(colRef, data);
 	}
 };
 
