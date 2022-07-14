@@ -7,11 +7,11 @@
   "packageManager": "pnpm@7.1.7",
   "scripts": {
     "lint": "tslint --project tsconfig.json",
-    "build": "pnpm run -r build",
+    "build:packages": "pnpm run -r build",
     "prerelease": "tsx ./scripts/prerelease.ts",
     "prepublish": "tsx ./scripts/prepublish.ts",
     "publish": "tsx ./scripts/publish.ts",
-    "release" : "pnpm run clean && pnpm run prerelease && pnpm run build && pnpm run prepublish && pnpm run publish",
+    "release" : "pnpm run clean && pnpm run prerelease && pnpm run build:packages && pnpm run prepublish && pnpm run publish",
     "clean": "rimraf dist types packages/*/dist",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
