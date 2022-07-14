@@ -1,23 +1,22 @@
 {
-  "name": "fireman-fns",
-  "version": "0.1.4",
+  "name": "@fireman/repo",
+  "version": "1.0.0",
   "description": "Comprehensive firestore helper functions",
   "main": "index.js",
   "types": "index.d.ts",
+  "packageManager": "pnpm@7.1.7",
   "scripts": {
     "lint": "tslint --project tsconfig.json",
-    "build": "tsc",
-    "release": "sh ./scripts/release.sh",
+    "build": "pnpm run -r build",
+    "prerelease": "tsx ./scripts/prerelease.ts",
+    "prepublish": "tsx ./scripts/prepublish.ts",
+    "publish": "tsx ./scripts/publish.ts",
+    "release" : "pnpm run clean && pnpm run prerelease && pnpm run build && pnpm run prepublish && pnpm run publish",
+    "clean": "rimraf dist types packages/*/dist",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
   },
-  "keywords": [
-    "firestore",
-    "firebase",
-    "helper",
-    "functions"
-  ],
   "engines": {
     "node": ">=14"
   },
@@ -28,17 +27,20 @@
   },
   "homepage": "https://fireman-fns.netlify.app/",
   "license": "MIT",
-  "peerDependencies": {
-    "firebase": "^9.8.4",
-    "firebase-admin": "^11.0.0"
-  },
   "publishConfig": {
     "access": "public"
   },
-  "packageManager": "yarn@3.2.1",
   "devDependencies": {
+    "fast-glob": "^3.2.11",
+    "fs-extra": "^10.1.0",
+    "pnpm": "^7.5.1",
+    "rimraf": "^3.0.2",
+    "tsx": "^3.8.0",
     "typescript": "^4.7.4",
     "vitepress": "^1.0.0-alpha.4",
     "vue": "^3.2.37"
+  },
+  "dependencies": {
+    "consola": "^2.15.3"
   }
 }

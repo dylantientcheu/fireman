@@ -1,20 +1,30 @@
 {
   "compilerOptions": {
-    "lib": ["ESNext", "dom"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "module": "commonjs",
     "noImplicitAny": false,
     "noImplicitReturns": true,
     "resolveJsonModule": true,
+    "moduleResolution": "node",
     "outDir": "dist",
     "sourceMap": true,
     "target": "es2017",
     "esModuleInterop": true,
     "types": [ "node" ],
-    "declaration": true
+    "declaration": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "noUnusedLocals": true,
+    "paths": {
+      "@fireman/web": ["./packages/web/index.ts"],
+      "@fireman/web/*": ["./packages/web/*"],
+      "@fireman/admin": ["./packages/admin/index.ts"],
+      "@fireman/admin/*": ["./packages/admin/*"],
+    },
   },
   "compileOnSave": true,
   "include": [
-    "src"
+    "packages",
   ],
-  "exclude": ["dist", "node_modules", "**/*.spec.ts"],
+  "exclude": ["**/dist", "node_modules", "**/*.spec.ts", "/scripts/**/*.ts"],
 }
