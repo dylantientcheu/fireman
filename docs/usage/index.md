@@ -11,7 +11,7 @@ Fireman provide a single querying powerful interface, with the `get` function, y
 ### Get a single document
 
 ```js
-import { get } from "fireman-fns/firestore";
+import { get } from "@fireman/firestore";
 
 get(db, {collectionId: "users", documentId: "user1"}).then((userinfo) => {
   console.log(userinfo);
@@ -21,7 +21,7 @@ get(db, {collectionId: "users", documentId: "user1"}).then((userinfo) => {
 ### Get all documents from collection
 
 ```js
-import { get } from "fireman-fns/firestore";
+import { get } from "@fireman/firestore";
 
 get(db, {collectionId: "users"}).then((userinfo) => {
   console.log(userinfo);
@@ -31,7 +31,7 @@ get(db, {collectionId: "users"}).then((userinfo) => {
 ### Get documents with filters (querying)
 
 ```js
-import { get } from "fireman-fns/firestore";
+import { get } from "@fireman/firestore";
 
 get(db, {
     collectionId: "users",
@@ -48,7 +48,7 @@ get(db, {
 Returns a boolean indicating if a document exists.
 
 ```js
-import { doesDocumentExists } from "fireman-fns/firestore";
+import { doesDocumentExists } from "@fireman/firestore";
 
 doesDocumentExists(db, "users", "user1").then((exists) => {
   console.log(exists); // => true or false
@@ -89,7 +89,7 @@ Firestore offers a two ways to add documents to your collection. You can either 
 ### Add with auto generated ID
 
 ```js
-import { addDocument } from "fireman-fns/firestore";
+import { addDocument } from "@fireman/firestore";
 
 const todoData = {
   title: "Learn Firebase",
@@ -109,7 +109,7 @@ addDocument(db, todo, todoData, "todo1")
 ## Update documents
 
 ```js
-import { updateDocument } from "fireman-fns/firestore";
+import { updateDocument } from "@fireman/firestore";
 
 updateDocument(db, todo, { title: "new" }, "todo1")
 ```
@@ -117,7 +117,7 @@ updateDocument(db, todo, { title: "new" }, "todo1")
 ## Delete documents
 
 ```js
-import { deleteDocument } from "fireman-fns/firestore";
+import { deleteDocument } from "@fireman/firestore";
 
 deleteDocument(db, todo, "todo1")
 ```

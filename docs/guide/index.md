@@ -9,8 +9,16 @@ It provides a simple interface to get, update and delete data from your firestor
 
 ## Installation
 
+### If you are using Firebase on the browser
+
 ```bash
-npm install fireman-fns
+npm install @fireman/web
+```
+
+### If you are using Firebase on the server (nodejs)
+
+```bash
+npm install @fireman/admin
 ```
 
 ## Initializing Firestore
