@@ -32,7 +32,13 @@ The API is predictable and consistent, making it easy to intergrate.
 ## Installation
 
 ```bash
-npm i fireman-fns
+npm i @fireman/web
+```
+
+> For the server
+
+```bash
+npm i @fireman/admin
 ```
 
 See how to use on the [usage Docs](https://fireman-fns.netlify.app/usage/)
