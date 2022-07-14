@@ -1,0 +1,30 @@
+{
+	"name": "@fireman/admin",
+	"version": "0.0.2-2",
+	"description": "Comprehensive firestore helper functions for the admin (nodejs) sdk",
+	"main": "index.js",
+	"types": "index.d.ts",
+	"homepage": "https://fireman-fns.netlify.app/",
+	"author": "Dylan Tientcheu <https://github.com/blurdylan>",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/blurdylan/fireman.git",
+		"directory": "packages/admin"
+	},
+	"license": "MIT",
+	"scripts": {
+		"build": "tsc"
+	},
+	"keywords": [
+		"firestore",
+		"firebase",
+		"helper",
+		"functions"
+	],
+	"dependencies": {
+		"firebase-admin": "^11.0.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

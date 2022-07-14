@@ -1,0 +1,30 @@
+{
+	"name": "@fireman/web",
+	"version": "0.0.2-2",
+	"description": "Comprehensive firestore helper functions for the web",
+	"main": "index.js",
+	"types": "index.d.ts",
+	"homepage": "https://fireman-fns.netlify.app/",
+	"author": "Dylan Tientcheu <https://github.com/blurdylan>",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/blurdylan/fireman.git",
+		"directory": "packages/web"
+	},
+	"license": "MIT",
+	"scripts": {
+		"build": "tsc"
+	},
+	"keywords": [
+		"firestore",
+		"firebase",
+		"helper",
+		"functions"
+	],
+	"dependencies": {
+		"firebase": "^9.8.4"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
