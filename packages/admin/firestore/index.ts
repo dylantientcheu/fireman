@@ -62,7 +62,7 @@ export const get = async (db: Firestore, firemanQuery: FiremanQuery) => {
 		q = q.orderBy(orderBy.field, orderBy.dir);
 	});
 
-	if (!limitDocs || limitDocs === 0) {
+	if (limitDocs) {
 		q = q.limit(limitDocs);
 	}
 
@@ -108,11 +108,11 @@ export const addDocument = async (
 	options?: SetOptions
 ) => {
 	if (docId) {
-		const docRef = db.doc(`${collectionId!}/${docId!}`);
+		const docRef = db.doc(`${collectionId}/${docId}`);
 		if (options) return await docRef.set(data, options);
 		else return await docRef.set(data);
 	} else {
-		const colRef = db.collection("collection");
+		const colRef = db.collection(collectionId);
 		return await colRef.add(data);
 	}
 };
