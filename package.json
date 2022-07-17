@@ -11,6 +11,7 @@
     "prerelease:packages": "tsx ./scripts/prerelease.ts",
     "prepublish:packages": "tsx ./scripts/prepublish.ts",
     "publish:packages": "tsx ./scripts/publish.ts",
+
     "clean": "rimraf dist types packages/*/dist",
     "prepare": "pnpm run clean && pnpm run build:packages",
     "release": "pnpm run prepare && pnpm run prepublish:packages && pnpm run publish:packages",
