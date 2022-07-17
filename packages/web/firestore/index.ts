@@ -162,5 +162,5 @@ export const deleteDocument = async (
 	docId: string
 ) => {
 	const docRef = doc(db, collectionId, docId);
-	await deleteDoc(docRef);
+	return await deleteDoc(docRef);
 };
