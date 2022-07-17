@@ -4,7 +4,7 @@ layout: home
 hero:
   name: Fireman
   text: Firebase helper functions
-  tagline: Simple, yet powerful, wrapper around the firestore SDK providing firestore helper functions.
+  tagline: Simple, yet powerful, wrapper around the Firebase SDK providing consistent & comprehensive helper functions.
   image:
     src: /logo.svg
     alt: Fireman logo
@@ -23,9 +23,9 @@ features:
     details: Querying is done with a single interface, easily get documents from your firestore instance.
   - icon: 🧑‍🚒
     title: Consistent
-    details: The API is predictable and consistent, making it easy to integrate.
+    details: The API is predictable and consistent, making it easy to integrate in your app.
   - icon: 🔥
-    title: Covers both Firestore and Firestore Admin SDKs
-    details: Coming soon
+    title: Covers Firebase client and admin SDKs
+    details: More functions coming soon
 ---
 
