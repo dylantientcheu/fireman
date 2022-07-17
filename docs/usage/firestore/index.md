@@ -14,7 +14,7 @@ Fireman provide a single querying powerful interface, with the `get` function, y
 import { get } from "@fireman/web/firestore";
 
 get(db, {collectionId: "users", documentId: "user1"}).then((userinfo) => {
-  console.log(userinfo); // returns true or false
+  console.log(userinfo);
 });
 ```
 
@@ -97,13 +97,13 @@ const todoData = {
   createdOn: new Date()
 }
 
-addDocument(db, todo, todoData)
+addDocument(db, "todo", todoData)
 ```
 
 ### Add with custom ID
 
 ```js
-addDocument(db, todo, todoData, "todo1")
+addDocument(db, "todo", todoData, "todo1")
 ```
 
 ## Update documents
