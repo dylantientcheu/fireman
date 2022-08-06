@@ -1,42 +1,36 @@
 import { db } from "./appInit";
-import Fireman from "../../../dist/web/firestore";
+import {
+	addDocument,
+	deleteDocument,
+	doesDocumentExists,
+	get,
+	updateDocument,
+} from "../../../dist/web/firestore/utils";
 import { expect } from "chai";
 
-describe("Firestore web class functions test", () => {
+describe("Firestore web functions test", () => {
 	it("should be able to query from a collection", async () => {
-		const fireman = new Fireman(db);
 		try {
-			const result = await fireman.get("users");
-			expect(result).to.be.ok;
-		} catch (error) {
-			console.log(error);
-		}
-	});
-	it("should be able to query from a collection and return id with different field id", async () => {
-		const fireman = new Fireman(db, "_id__");
-		try {
-			const result = await fireman.get("users");
+			const result = await get(db, "users");
 			expect(result).to.be.ok;
 		} catch (error) {
 			console.log(error);
 		}
 	});
 	it("should be able to get a document from a collection", async () => {
-		const fireman = new Fireman(db, "_id__");
 		try {
 			const id = "KJp2JGqW39QqoURsPBU1HlvvhgU2";
-			const result = await fireman.get(`users/${id}`);
-			expect(result["_id__"]).to.eq(id);
+			const result = await get(db, `users/${id}`);
+			expect(result).to.be.ok;
 		} catch (error) {
 			console.log(error);
 		}
 	});
 
 	it("should be able to return a doc using the second query notation", async () => {
-		const fireman = new Fireman(db);
 		try {
 			const id = "KJp2JGqW39QqoURsPBU1HlvvhgU2";
-			const result = await fireman.get(`users`, { doc: id });
+			const result = await get(db, `users`, { doc: id });
 			expect(result).to.be.ok;
 		} catch (error) {
 			console.log(error);
@@ -44,9 +38,8 @@ describe("Firestore web class functions test", () => {
 	});
 
 	it("should be able to query from a collection with where filters", async () => {
-		const fireman = new Fireman(db);
 		try {
-			const result = await fireman.get("users", {
+			const result = await get(db, "users", {
 				where: [{ field: "subscribed", op: "!=", val: false }],
 			});
 			expect(result).to.be.ok;
@@ -55,9 +48,8 @@ describe("Firestore web class functions test", () => {
 		}
 	});
 	it("should be able to query from a collection with orderby filters", async () => {
-		const fireman = new Fireman(db);
 		try {
-			const result = await fireman.get("users", {
+			const result = await get(db, "users", {
 				order: [{ field: "subscribedOn", dir: "desc" }],
 			});
 			expect(result).to.be.ok;
@@ -66,18 +58,28 @@ describe("Firestore web class functions test", () => {
 		}
 	});
 	it("should be able to query from a collection with limits", async () => {
-		const fireman = new Fireman(db);
 		try {
-			const result = await fireman.get("users", { limit: 1 });
+			const result = await get(db, "users", { limit: 1 });
 			expect(result).to.have.length(1);
 		} catch (error) {
 			console.log(error);
 		}
 	});
-	it("should add a document with generated id on Firestore", async () => {
-		const fireman = new Fireman(db);
+	it("should check if a document exists", async () => {
 		try {
-			const result = await fireman.add("users", {
+			const result = await doesDocumentExists(
+				db,
+				"users",
+				"doesntExistInFirestore"
+			);
+			expect(result).to.be.not.true;
+		} catch (error) {
+			console.log(error);
+		}
+	});
+	it("should add a document with auto id on Firestore", async () => {
+		try {
+			const result = await addDocument(db, "users", {
 				name: "John Doe",
 				subscribed: true,
 				subscribedOn: new Date(),
@@ -88,9 +90,9 @@ describe("Firestore web class functions test", () => {
 		}
 	});
 	it("should add a document with specified id on Firestore", async () => {
-		const fireman = new Fireman(db);
 		try {
-			const result = await fireman.add(
+			const result = await addDocument(
+				db,
 				"users",
 				{
 					name: "John Doe",
@@ -105,9 +107,8 @@ describe("Firestore web class functions test", () => {
 		}
 	});
 	it("should update a document on Firestore", async () => {
-		const fireman = new Fireman(db);
 		try {
-			const result = await fireman.update("users", "johnDoe", {
+			const result = await updateDocument(db, "users", "johnDoe", {
 				name: "John Doe",
 				subscribed: false,
 				subscribedOn: new Date(),
@@ -118,9 +119,8 @@ describe("Firestore web class functions test", () => {
 		}
 	});
 	it("should delete a document from Firestore", async () => {
-		const fireman = new Fireman(db);
 		try {
-			const result = await fireman.delete("users", "johnDoe");
+			const result = await deleteDocument(db, "users", "johnDoe");
 			expect(result).to.be.undefined;
 		} catch (error) {
 			console.log(error);
