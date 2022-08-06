@@ -1,5 +1,7 @@
 # Working with Firestore
 
+After initializing an instance of Fireman you can query, update and delete data from your firestore instance using the [previously instantiated](/guide/#initializing-fireman/) Fireman instance.
+
 ## Get documents
 
 Fireman provide a single querying powerful interface, with the `get` function, you are able to easily get single documents and collections from your Firestore instances.
@@ -8,50 +10,31 @@ Fireman provide a single querying powerful interface, with the `get` function, y
 `db` is your Firestore instance ([see guide](/guide/#initializing-firestore) for how to initialize it). It needs to be passed as first argument in each function
 :::
 
-### Get a single document
+### Get a collection or a single document
 
 ```js
-import { get } from "@fireman/web/firestore";
+const fireman = new Fireman(db);
 
-get(db, {collectionId: "users", documentId: "user1"}).then((userinfo) => {
+// Get a single document
+fireman.get("users", {doc: "documentIdToQuery"}).then((usersinfo) => {
   console.log(userinfo);
 });
-```
 
-### Get all documents from collection
-
-```js
-import { get } from "@fireman/web/firestore";
-
-get(db, {collectionId: "users"}).then((userinfo) => {
-  console.log(userinfo);
-});
+// You could also append the document id to the collection name in the first argument
+fireman.get("users/documentIdToQuery").then((userInfo) => {
+  console.log(userInfo)
+})
 ```
 
 ### Get documents with filters (querying)
 
 ```js
-import { get } from "@fireman/web/firestore";
-
-get(db, {
-    collectionId: "users",
-    whereArray: [{field: "name", op: "==", val: "fireman"}],
-    orderByArray: [{field: "createdOn", dir: "desc"}],
-    limitDocs: 20
-  }).then((usersFound) => {
+fireman.get("users", {
+  where: [{field: "name", op: "==", val: "fireman"}],
+  orderBy: [{field: "createdOn", dir: "desc"}],
+  limit: 20
+}).then((usersFound) => {
   console.log(usersFound);
-});
-```
-
-### Check if a document exists
-
-Returns a boolean indicating if a document exists.
-
-```js
-import { doesDocumentExists } from "@fireman/web/firestore";
-
-doesDocumentExists(db, "users", "user1").then((exists) => {
-  console.log(exists); // => true or false
 });
 ```
 
@@ -62,23 +45,22 @@ Errors are not caught internally by Fireman, you need to handle them yourself. A
 ### Type declaration
 
 ```ts
-type FiremanWhere =  {
- field: string | FieldPath;
- op: WhereFilterOp;
- val: unknown;
-}
+type FiremanWhere = {
+  field: string | FieldPath;
+  op: WhereFilterOp;
+  val: unknown;
+};
 
 type FiremanOrderBy = {
- field: string | FieldPath;
- dir: OrderByDirection;
-}
+  field: string | FieldPath;
+  dir: OrderByDirection;
+};
 
 interface FiremanQuery {
- collectionId: string;
- docId?: string;
- whereArray?: FiremanWhere[];
- orderByArray?: FiremanOrderBy[];
- limitDocs?: number;
+  doc?: string;
+  where?: FiremanWhere[];
+  order?: FiremanOrderBy[];
+  limit?: number;
 }
 ```
 
@@ -89,35 +71,29 @@ Firestore offers a two ways to add documents to your collection. You can either 
 ### Add with auto generated ID
 
 ```js
-import { addDocument } from "@fireman/web/firestore";
-
 const todoData = {
   title: "Learn Firebase",
   completed: false,
   createdOn: new Date()
 }
 
-addDocument(db, "todo", todoData)
+fireman.add("todos", todoData)
 ```
 
 ### Add with custom ID
 
 ```js
-addDocument(db, "todo", todoData, "todo1")
+fireman.add("todos", todoData, "todoId")
 ```
 
 ## Update documents
 
 ```js
-import { updateDocument } from "@fireman/web/firestore";
-
-updateDocument(db, todo, { title: "new" }, "todo1")
+fireman.update("todos", { title: "new" }, "todo1")
 ```
 
 ## Delete documents
 
 ```js
-import { deleteDocument } from "@fireman/web/firestore";
-
-deleteDocument(db, todo, "todo1")
+fireman.delete("todos", "todo1")
 ```
