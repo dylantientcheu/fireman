@@ -16,21 +16,23 @@ Works exactly as on the client. [see here](/usage/firestore/), however, the impo
 :::
 
 ```js
-import { get } from "@fireman/admin/firestore"; // <- notice the import changed to @fireman/admin
+import Fireman from "fireman/admin/firestore";
+
+const fireman = new Fireman(db);
 
 // get
-get(db, {collectionId: "users", documentId: "user1"}).then((userinfo) => {
+fireman.get("users", {doc: "user1"}).then((userinfo) => {
   console.log(userinfo);
 });
 
 // add
-addDocument(db, "todo", todoData)
+fireman.add("todo", todoData)
 
 // update
-updateDocument(db, todo, { title: "new" }, "todo1")
+fireman.update("todo", "todo1", { title: "new" })
 
 // delete
-deleteDocument(db, todo, "todo1")
+fireman.delete("todo", "todo1")
 ```
 
 ## List all documents `[server only]`
@@ -38,7 +40,7 @@ deleteDocument(db, todo, "todo1")
 `@fireman/admin` provides a helper function to [list all documents in a collection](https://googleapis.dev/nodejs/firestore/latest/CollectionReference.html#listDocuments). This function returns all documents with ids (yes, even the zombie ones).
 
 ```js
-import {listAllDocuments} from "@fireman/admin/firestore";
+import { listAllDocuments } from "@fireman/admin/firestore/utils";
 
 listAllDocuments(db, collectionId).then(allDocs => {
   console.log(allDocs)
