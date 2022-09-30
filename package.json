@@ -1,6 +1,6 @@
 {
   "name": "@fireman/repo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Comprehensive firestore helper functions",
   "main": "index.js",
   "types": "index.d.ts",
@@ -8,19 +8,16 @@
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "build:packages": "pnpm run -r build",
+    "prepare-release": "pnpm run clean && pnpm run build:packages",
     "prerelease:packages": "tsx ./scripts/prerelease.ts",
     "prepublish:packages": "tsx ./scripts/prepublish.ts",
+    "bump" : "tsx ./scripts/release-minor.ts",
     "publish:packages": "tsx ./scripts/publish.ts",
-
     "clean": "rimraf dist types packages/*/dist",
-    "prepare": "pnpm run clean && pnpm run build:packages",
-    "release": "pnpm run prepare && pnpm run prepublish:packages && pnpm run publish:packages",
-
-    "test:admin" : "mocha -r tsx packages/admin/_tests_/*.spec.ts --exit",
-    "test:web" : "mocha -r tsx packages/web/_tests_/*.spec.ts --exit",
-
+    "release": "pnpm run prepare-release && pnpm run prepublish:packages && pnpm run publish:packages",
+    "test:admin": "mocha -r tsx packages/admin/_tests_/*.spec.ts --exit",
+    "test:web": "mocha -r tsx packages/web/_tests_/*.spec.ts --exit",
     "test": "pnpm run test:admin && pnpm run test:web",
-
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
@@ -39,23 +36,22 @@
     "access": "public"
   },
   "devDependencies": {
-    "@types/chai": "^4.3.1",
-    "@types/mocha": "^9.1.1",
+    "@types/chai": "^4.3.3",
+    "@types/mocha": "^10.0.0",
     "chai": "^4.3.6",
-    "fast-glob": "^3.2.11",
-    "@firebase/app-types": "^0.7.0",
+    "fast-glob": "^3.2.12",
     "fs-extra": "^10.1.0",
     "mocha": "^10.0.0",
-    "pnpm": "^7.5.1",
+    "pnpm": "^7.12.2",
     "rimraf": "^3.0.2",
-    "tsx": "^3.8.0",
-    "typescript": "^4.7.4",
-    "vitepress": "^1.0.0-alpha.4",
-    "vue": "^3.2.37"
+    "tsx": "^3.9.0",
+    "typescript": "^4.8.4",
+    "vitepress": "1.0.0-alpha.4",
+    "vue": "^3.2.40"
   },
   "dependencies": {
     "consola": "^2.15.3",
-    "firebase": "^9.8.4",
-    "firebase-admin": "^11.0.0"
+    "firebase": "^9.10.0",
+    "firebase-admin": "^11.0.1"
   }
 }
