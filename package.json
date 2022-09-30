@@ -8,12 +8,14 @@
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "build:packages": "pnpm run -r build",
+
+
+    "prepare-release": "pnpm run clean && pnpm run build:packages",
     "prerelease:packages": "tsx ./scripts/prerelease.ts",
     "prepublish:packages": "tsx ./scripts/prepublish.ts",
     "publish:packages": "tsx ./scripts/publish.ts",
 
     "clean": "rimraf dist types packages/*/dist",
-    "prepare-release": "pnpm run clean && pnpm run build:packages",
     "release": "pnpm run prepare-release && pnpm run prepublish:packages && pnpm run publish:packages",
 
     "test:admin" : "mocha -r tsx packages/admin/_tests_/*.spec.ts --exit",

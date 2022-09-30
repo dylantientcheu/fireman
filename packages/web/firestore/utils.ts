@@ -53,11 +53,13 @@ export const get = async <T>(
 	let { doc, where, order, limit } = firemanQuery;
 
   let collectionId = "";
+
 	if (isCollection(path)) {
 		collectionId = path;
 	} else {
-		collectionId = path.split("/").slice(0, -1).join("/");
-		doc = path.split("/").pop();
+		const collArray = path.split("/");
+		doc = collArray.pop();
+		collectionId = collArray.join("/");
 	}
 
 	// set default values
