@@ -1,6 +1,6 @@
 {
   "name": "@fireman/repo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Comprehensive firestore helper functions",
   "main": "index.js",
   "types": "index.d.ts",
@@ -8,21 +8,15 @@
   "scripts": {
     "lint": "tslint --project tsconfig.json",
     "build:packages": "pnpm run -r build",
-
-
     "prepare-release": "pnpm run clean && pnpm run build:packages",
     "prerelease:packages": "tsx ./scripts/prerelease.ts",
     "prepublish:packages": "tsx ./scripts/prepublish.ts",
     "publish:packages": "tsx ./scripts/publish.ts",
-
     "clean": "rimraf dist types packages/*/dist",
     "release": "pnpm run prepare-release && pnpm run prepublish:packages && pnpm run publish:packages",
-
-    "test:admin" : "mocha -r tsx packages/admin/_tests_/*.spec.ts --exit",
-    "test:web" : "mocha -r tsx packages/web/_tests_/*.spec.ts --exit",
-
+    "test:admin": "mocha -r tsx packages/admin/_tests_/*.spec.ts --exit",
+    "test:web": "mocha -r tsx packages/web/_tests_/*.spec.ts --exit",
     "test": "pnpm run test:admin && pnpm run test:web",
-
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
