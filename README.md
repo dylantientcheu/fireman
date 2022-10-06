@@ -9,7 +9,6 @@
 <h1 align="center">Fireman</h1>
 <p align="center"> <a href="https://fireman-fns.netlify.app"><img src="https://img.shields.io/badge/Fireman-Docs-orange?style=for-the-badge"></a> <a href="https://firebase.google.com/docs"><img src="https://img.shields.io/badge/Firebase Docs-039BE5?style=for-the-badge&logo=Firebase&logoColor=yellow"></a></p>
 <p align="center">Fireman is a simple, yet powerful, wrapper around the firestore SDK<sup>*</sup> providing firestore helper functions.</p>
-<p align="center"><b><sup>*</sup>Fireman currently works only for Firebase v9</b></p>
 
 ## Documentation
 
@@ -41,7 +40,7 @@ npm i @fireman/web
 npm i @fireman/admin
 ```
 
-See how to use on the [usage Docs](https://fireman-fns.netlify.app/usage/)
+See how to use on the [usage docs](https://fireman-fns.netlify.app/usage/)
 
 ## License
 
