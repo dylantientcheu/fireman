@@ -1,6 +1,6 @@
 {
 	"name": "@fireman/web",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"description": "Comprehensive firestore helper functions for the web",
 	"main": "index.js",
 	"types": "index.d.ts",
