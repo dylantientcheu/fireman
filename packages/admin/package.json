@@ -22,7 +22,7 @@
 		"functions"
 	],
 	"dependencies": {
-		"firebase-admin": "^11.0.0"
+		"firebase-admin": "^11.2.0"
 	},
 	"publishConfig": {
 		"access": "public"
