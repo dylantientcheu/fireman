@@ -8,7 +8,7 @@
 
 <h1 align="center">Fireman</h1>
 <p align="center"> <a href="https://fireman-fns.netlify.app"><img src="https://img.shields.io/badge/Fireman-Docs-orange?style=for-the-badge"></a> <a href="https://firebase.google.com/docs"><img src="https://img.shields.io/badge/Firebase Docs-039BE5?style=for-the-badge&logo=Firebase&logoColor=yellow"></a></p>
-<p align="center">Fireman is a simple, yet powerful, wrapper around the firestore SDK<sup>*</sup> providing firestore helper functions.</p>
+<p align="center">Fireman is a simple, yet powerful, wrapper around the firestore SDK<sup>*</sup> providing firestore helper functions and an enhanced developer experience.</p>
 
 ## Documentation
 
