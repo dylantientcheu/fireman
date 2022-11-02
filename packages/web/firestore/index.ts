@@ -5,9 +5,10 @@ import {
 import {
 	addDocument,
 	deleteDocument,
+	countDocuments,
+	updateDocument,
 	FiremanQuery,
 	get,
-	updateDocument,
 } from "./utils";
 
 export default class FiremanFirestore {
@@ -32,6 +33,16 @@ export default class FiremanFirestore {
 	 */
 	async get(path: string, query: FiremanQuery = {}) {
 		return get(this.db as Firestore, path, query, this.fieldId);
+	}
+
+	/**
+	 * Count the number of documents in a collection.
+	 * @param path - collection path or document path you can append the document id after the collection path if you need to get the document.
+	 * @param query - is an object of the {@link FiremanQuery} interface to help you filter the data you need to count.
+	 * @returns {Promise<number>}
+	 */
+	async count(path: string, query: FiremanQuery = {}) {
+		return countDocuments(this.db as Firestore, path, query);
 	}
 
 	/**
@@ -65,20 +76,11 @@ export default class FiremanFirestore {
 	 * @param {Precondition} [precondition] - A precondition to enforce on this update.
 	 */
 
-	async update(
-		colId: string,
-		docId: string,
-		data: any,
-	) {
-		return updateDocument(
-			this.db as Firestore,
-			colId,
-			docId,
-			data,
-		);
+	async update(colId: string, docId: string, data: any) {
+		return updateDocument(this.db as Firestore, colId, docId, data);
 	}
 
-	async delete(colId: string, docId: string, ) {
+	async delete(colId: string, docId: string) {
 		return deleteDocument(this.db as Firestore, colId, docId);
 	}
 }

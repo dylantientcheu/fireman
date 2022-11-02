@@ -122,4 +122,13 @@ describe('Firestore admin class functions test', () => {
 			console.log(error);
 		}
 	});
+	it("should be able to count correctly the number of documents in collection", async () => {
+		const fireman = new Fireman(db);
+		try {
+			const result = await fireman.count("count");
+			expect(result).to.eq(3);
+		} catch (error) {
+			console.error(error);
+		}
+	});
 })

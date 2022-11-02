@@ -3,6 +3,7 @@ import {
 	addDocument,
 	deleteDocument,
 	doesDocumentExists,
+	countDocuments,
 	get,
 	updateDocument,
 } from "../../../dist/web/firestore/utils";
@@ -124,6 +125,14 @@ describe("Firestore web functions test", () => {
 			expect(result).to.be.undefined;
 		} catch (error) {
 			console.log(error);
+		}
+	});
+	it("should be able to count correctly the number of documents in collection", async () => {
+		try {
+			const result = await countDocuments(db, "count");
+			expect(result).to.eq(3);
+		} catch (error) {
+			console.error(error);
 		}
 	});
 });

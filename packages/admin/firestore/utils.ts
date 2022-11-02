@@ -88,6 +88,34 @@ export const get = async <T>(
 	return data;
 };
 
+
+export const countDocuments = async (
+	db: Firestore,
+	path: string,
+	firemanQuery: FiremanQuery = {},
+): Promise<any> => {
+	let q: Query;
+	let {where, limit } = firemanQuery;
+
+	// set default values
+	if (!where) where = <FiremanWhere[]>[];
+
+	q = db.collection(path);
+
+	where.forEach((wh) => {
+		q = q.where(wh.field, wh.op, wh.val);
+	});
+
+
+	if (limit) {
+		q = q.limit(limit);
+	}
+
+	const querySnapshot = await q.count().get();
+
+	return querySnapshot.data().count;
+};
+
 /**
  * Check if a document exists in Firestore.
  * @param db {@link Firestore} instance

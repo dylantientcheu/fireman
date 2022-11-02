@@ -2,7 +2,14 @@ import {
 	FieldPath,
 	Firestore, Precondition, SetOptions,
 } from "firebase-admin/firestore";
-import { addDocument, deleteDocument, FiremanQuery, get, updateDocument } from "./utils";
+import {
+	addDocument,
+	deleteDocument,
+	FiremanQuery,
+	get,
+	updateDocument,
+	countDocuments,
+} from "./utils";
 
 export default class FiremanFirestore {
 	db: Firestore | unknown;
@@ -49,6 +56,16 @@ export default class FiremanFirestore {
 			docId,
 			options
 		);
+	}
+
+	/**
+	 * Count the number of documents in a collection.
+	 * @param path - collection path or document path you can append the document id after the collection path if you need to get the document.
+	 * @param query - is an object of the {@link FiremanQuery} interface to help you filter the data you need to count.
+	 * @returns {Promise<number>}
+	 */
+	async count(path: string, query: FiremanQuery = {}) {
+		return countDocuments(this.db as Firestore, path, query);
 	}
 
 	/**

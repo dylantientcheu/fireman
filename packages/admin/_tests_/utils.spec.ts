@@ -1,5 +1,13 @@
 import { db } from "./appInit";
-import { addDocument, deleteDocument, doesDocumentExists, get, listAllDocuments, updateDocument } from "../../../dist/admin/firestore/utils"
+import {
+	addDocument,
+	deleteDocument,
+	doesDocumentExists,
+	get,
+	listAllDocuments,
+	updateDocument,
+	countDocuments,
+} from "../../../dist/admin/firestore/utils";
 import { expect } from "chai"
 
 describe('Firestore admin functions test', () => {
@@ -128,6 +136,14 @@ describe('Firestore admin functions test', () => {
 			expect(result).to.be.ok;
 		} catch (error) {
 			console.log(error);
+		}
+	});
+	it("should be able to count correctly the number of documents in collection", async () => {
+		try {
+			const result = await countDocuments(db, "count");
+			expect(result).to.eq(3);
+		} catch (error) {
+			console.error(error);
 		}
 	});
 })

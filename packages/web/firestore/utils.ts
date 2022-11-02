@@ -17,6 +17,7 @@ import {
 	SetOptions,
 	deleteDoc,
 	addDoc,
+	getCountFromServer,
 } from "firebase/firestore";
 
 type FiremanWhere = {
@@ -98,9 +99,44 @@ export const get = async <T>(
 	}
 	const querySnapshot = await getDocs(q);
 	querySnapshot.forEach((doc) => {
-		data.push({ [fieldId]: doc.id, ...doc.data() });
+		data.push({ [fieldId]: doc.id, ...doc.data(), });
 	});
 	return data;
+};
+
+/**
+ * Count the number of documents in a collection.
+ * You can also filter by adding queries in the `where` attribute
+ * @param db {@link Firestore} instance
+ * @param path to collection
+ * @param firemanQuery  is an object of the {@link FiremanQuery} interface
+ * @returns {Promise<any>}
+ */
+
+export const countDocuments = async (
+	db: Firestore,
+	path: string,
+	firemanQuery: FiremanQuery = {}
+) => {
+	let { where, limit } = firemanQuery;
+	if (!where) where = <FiremanWhere[]>[];
+	let q: Query;
+
+
+
+	const whereConstraints = where.map((whereConstraint: FiremanWhere) =>
+		fbWhere(whereConstraint.field, whereConstraint.op, whereConstraint.val)
+	);
+
+
+	if (!limit || limit === 0) {
+		q = query(collection(db, path),...whereConstraints);
+	} else {
+		q = query(collection(db, path),...whereConstraints, fbLimit(limit));
+	}
+
+	const snapshot = await getCountFromServer(q);
+	return snapshot.data().count;
 };
 
 /**
