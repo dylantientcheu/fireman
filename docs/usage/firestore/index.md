@@ -97,3 +97,12 @@ fireman.update("todos", { title: "new" }, "todo1")
 ```js
 fireman.delete("todos", "todo1")
 ```
+
+## Count documents in a collection
+
+```js
+fireman.count("todos") // returns 3
+
+// or with filters
+fireman.count("todos", {where: [{field: "title", op: "==", val: "new"}]}) // returns 1
+```
