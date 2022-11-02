@@ -22,7 +22,7 @@
 		"functions"
 	],
 	"dependencies": {
-		"firebase": "^9.8.4"
+		"firebase": "^9.13.0"
 	},
 	"publishConfig": {
 		"access": "public"
