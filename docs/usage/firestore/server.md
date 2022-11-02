@@ -35,6 +35,15 @@ fireman.update("todo", "todo1", { title: "new" })
 fireman.delete("todo", "todo1")
 ```
 
+## Count documents in a collection
+
+```js
+fireman.count("todos") // returns 3
+
+// with filters (can also take limits)
+fireman.count("todos", { where: [{ field: "done", op: "==", val: true }] }) // returns 1
+```
+
 ## List all documents `[server only]`
 
 `@fireman/admin` provides a helper function to [list all documents in a collection](https://googleapis.dev/nodejs/firestore/latest/CollectionReference.html#listDocuments). This function returns all documents with ids (yes, even the zombie ones).
