@@ -9,7 +9,6 @@
     "lint": "tslint --project tsconfig.json",
     "build:packages": "pnpm run -r build",
     "prepare-release": "pnpm run clean && pnpm run build:packages",
-    "prerelease:packages": "tsx ./scripts/prerelease.ts",
     "prepublish:packages": "tsx ./scripts/prepublish.ts",
     "bump" : "tsx ./scripts/release-minor.ts",
     "publish:packages": "tsx ./scripts/publish.ts",
