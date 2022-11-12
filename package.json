@@ -1,56 +1,56 @@
 {
-  "name": "@fireman/repo",
-  "version": "1.1.0",
-  "description": "Comprehensive firestore helper functions",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "packageManager": "pnpm@7.1.7",
-  "scripts": {
-    "lint": "tslint --project tsconfig.json",
-    "build:packages": "pnpm run -r build",
-    "prepare-release": "pnpm run clean && pnpm run build:packages",
-    "prepublish:packages": "tsx ./scripts/prepublish.ts",
-    "bump" : "tsx ./scripts/release-minor.ts",
-    "publish:packages": "tsx ./scripts/publish.ts",
-    "clean": "rimraf dist types packages/*/dist",
-    "release": "pnpm run prepare-release && pnpm run prepublish:packages && pnpm run publish:packages",
-    "test:admin": "mocha -r tsx packages/admin/_tests_/*.spec.ts --exit",
-    "test:web": "mocha -r tsx packages/web/_tests_/*.spec.ts --exit",
-    "test": "pnpm run test:admin && pnpm run test:web",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
-  },
-  "engines": {
-    "node": ">=14"
-  },
-  "author": {
-    "name": "Dylan Tientcheu",
-    "email": "dylantientcheu@gmail.com",
-    "url": "http://dylantientcheu.dev"
-  },
-  "homepage": "https://fireman-fns.netlify.app/",
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
-  "devDependencies": {
-    "@types/chai": "^4.3.3",
-    "@types/mocha": "^10.0.0",
-    "chai": "^4.3.6",
-    "fast-glob": "^3.2.12",
-    "fs-extra": "^10.1.0",
-    "mocha": "^10.0.0",
-    "pnpm": "^7.12.2",
-    "rimraf": "^3.0.2",
-    "tsx": "^3.9.0",
-    "typescript": "^4.8.4",
-    "vitepress": "1.0.0-alpha.4",
-    "vue": "^3.2.40"
-  },
-  "dependencies": {
-    "consola": "^2.15.3",
-    "firebase": "^9.13.0",
-    "firebase-admin": "^11.2.0"
-  }
+	"name": "@fireman/repo",
+	"version": "1.1.0",
+	"description": "Comprehensive firestore helper functions",
+	"main": "index.js",
+	"types": "index.d.ts",
+	"packageManager": "pnpm@7.1.7",
+	"scripts": {
+		"lint": "tslint --project tsconfig.json",
+		"build:packages": "pnpm run -r build",
+		"prepare-release": "pnpm run clean && pnpm run build:packages",
+		"prepublish:packages": "tsx ./scripts/prepublish.ts",
+		"bump": "tsx ./scripts/release-minor.ts",
+		"publish:packages": "tsx ./scripts/publish.ts",
+		"clean": "rimraf dist types packages/*/dist",
+		"release": "pnpm run prepare-release && pnpm run prepublish:packages && pnpm run publish:packages",
+		"test:admin": "mocha -r tsx packages/admin/_tests_/*.spec.ts --exit",
+		"test:web": "mocha -r tsx packages/web/_tests_/*.spec.ts --exit",
+		"test": "pnpm run test:admin && pnpm run test:web",
+		"docs:dev": "vitepress dev docs",
+		"docs:build": "vitepress build docs",
+		"docs:serve": "vitepress serve docs"
+	},
+	"engines": {
+		"node": ">=14"
+	},
+	"author": {
+		"name": "Dylan Tientcheu",
+		"email": "dylantientcheu@gmail.com",
+		"url": "http://dylantientcheu.dev"
+	},
+	"homepage": "https://fireman-fns.netlify.app/",
+	"license": "MIT",
+	"publishConfig": {
+		"access": "public"
+	},
+	"devDependencies": {
+		"@types/chai": "^4.3.4",
+		"@types/mocha": "^10.0.0",
+		"chai": "^4.3.7",
+		"fast-glob": "^3.2.12",
+		"fs-extra": "^10.1.0",
+		"mocha": "^10.1.0",
+		"pnpm": "^7.15.0",
+		"rimraf": "^3.0.2",
+		"tsx": "^3.12.1",
+		"typescript": "^4.8.4",
+		"vitepress": "1.0.0-alpha.28",
+		"vue": "^3.2.45"
+	},
+	"dependencies": {
+		"consola": "^2.15.3",
+		"firebase": "^9.14.0",
+		"firebase-admin": "^11.2.1"
+	}
 }
