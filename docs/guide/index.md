@@ -67,6 +67,10 @@ fireman.get("users", "userId").then(user => {
 });
 ```
 
+::: info
+If you already have an id property in your returned objects, they will get replaced. (see below)
+:::
+
 You may want to edit this behaviour by instantiating the Fireman instance with a `fieldId` property containing the desired name of the property.
 
 ```js
