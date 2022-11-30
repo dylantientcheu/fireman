@@ -111,7 +111,7 @@ addDocument(db, todo, todoData, "todo1")
 ```js
 import { updateDocument } from "@fireman/web/firestore";
 
-updateDocument(db, todo, { title: "new" }, "todo1")
+updateDocument(db, todo, {title: "new"}, "todo1")
 ```
 
 ## Delete documents
