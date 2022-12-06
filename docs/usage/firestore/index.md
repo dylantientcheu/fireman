@@ -25,6 +25,9 @@ fireman.get("users/documentIdToQuery").then((userInfo) => {
   console.log(userInfo)
 })
 ```
+::: warning
+when getting single documents this way, you SHOULD NOT append or prepend `/` to your query strings, Fireman may mistake them for a collection or doc (when that is not exactly what is asked) [tracking #16](https://github.com/dylantientcheu/fireman/issues/16)
+:::
 
 ### Get documents with filters (querying)
 
