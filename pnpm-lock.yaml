@@ -10,19 +10,19 @@ importers:
       consola: ^2.15.3
       fast-glob: ^3.2.12
       firebase: ^9.14.0
-      firebase-admin: ^11.2.1
+      firebase-admin: ^11.3.0
       fs-extra: ^10.1.0
       mocha: ^10.1.0
-      pnpm: ^7.15.0
+      pnpm: ^7.18.1
       rimraf: ^3.0.2
       tsx: ^3.12.1
       typescript: ^4.8.4
-      vitepress: 1.0.0-alpha.28
+      vitepress: 1.0.0-alpha.30
       vue: ^3.2.45
     dependencies:
       consola: 2.15.3
       firebase: 9.14.0
-      firebase-admin: 11.2.1_@firebase+app-types@0.8.1
+      firebase-admin: 11.3.0_@firebase+app-types@0.8.1
     devDependencies:
       '@types/chai': 4.3.4
       '@types/mocha': 10.0.0
@@ -30,11 +30,11 @@ importers:
       fast-glob: 3.2.12
       fs-extra: 10.1.0
       mocha: 10.1.0
-      pnpm: 7.15.0
+      pnpm: 7.18.1
       rimraf: 3.0.2
       tsx: 3.12.1
       typescript: 4.8.4
-      vitepress: 1.0.0-alpha.28_ygzyjl425qrcgm3zeayiliwge4
+      vitepress: 1.0.0-alpha.30_ygzyjl425qrcgm3zeayiliwge4
       vue: 3.2.45
 
   packages/admin:
@@ -1438,7 +1438,7 @@ packages:
       '@vue/shared': 3.2.45
       estree-walker: 2.0.2
       magic-string: 0.25.9
-      postcss: 8.4.16
+      postcss: 8.4.19
       source-map: 0.6.1
     dev: true
 
@@ -2220,8 +2220,8 @@ packages:
       - supports-color
     dev: false
 
-  /firebase-admin/11.2.1_@firebase+app-types@0.8.1:
-    resolution: {integrity: sha512-Tz1GiZXjXAWyTFjzHXvj6KKoT45FraimYCQ1tIUkXXBKSJRCNb6utnQX14EEH/M1IzTM1dEbeMOiUc1RMil1qg==}
+  /firebase-admin/11.3.0_@firebase+app-types@0.8.1:
+    resolution: {integrity: sha512-8ENXUu9Lm6YTc5zzOqlF222M/KwsV/EDZ5UwwPPEU5XfCa1Ebj7K/SgLFdinjGu1NxkSnqu07UDpPhmAtW3b5w==}
     engines: {node: '>=14'}
     dependencies:
       '@fastify/busboy': 1.1.0
@@ -3118,19 +3118,10 @@ packages:
     engines: {node: '>=8.6'}
     dev: true
 
-  /pnpm/7.15.0:
-    resolution: {integrity: sha512-GGQ5+MCwD0bpq+65uitpgO1+ZusZ1keO5ebG/CH6ciu1ohnZj5Y3X374Ow/CBApa+Jw2/NUifVRz2fW4JChftA==}
+  /pnpm/7.18.1:
+    resolution: {integrity: sha512-GulnWxFW1dej1sSiju1FlYtvWIYa35ZvbTk9F8jOo+1GgJEVdx1ObLaZCApd2I4IB+jozyNWzInEdV0hQgUq0Q==}
     engines: {node: '>=14.6'}
     hasBin: true
-    dev: true
-
-  /postcss/8.4.16:
-    resolution: {integrity: sha512-ipHE1XBvKzm5xI7hiHCZJCSugxvsdq2mPnsq5+UF+VHCjiBvtDrlxJfMBToWaP9D5XlgNmcFGqoHmUn0EYEaRQ==}
-    engines: {node: ^10 || ^12 || >=14}
-    dependencies:
-      nanoid: 3.3.4
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
     dev: true
 
   /postcss/8.4.19:
@@ -3616,8 +3607,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitepress/1.0.0-alpha.28_ygzyjl425qrcgm3zeayiliwge4:
-    resolution: {integrity: sha512-pvbLssDMgLUN1terajmPlFBxHSDGO4DqwexKbjFyr7LeELerVuwGrG6F2J1hxmwOlbpLd1kHXEDqGm9JX/kTDQ==}
+  /vitepress/1.0.0-alpha.30_ygzyjl425qrcgm3zeayiliwge4:
+    resolution: {integrity: sha512-CjIqKkGAuvoP2IWBFIbYWyiMSHSGYvjPy7eDkdftawguv5a8w4AjM95VV4Lhyacev4AFcgK23FViibRluBMePw==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.0

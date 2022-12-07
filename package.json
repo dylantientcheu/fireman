@@ -41,11 +41,11 @@
 		"fast-glob": "^3.2.12",
 		"fs-extra": "^10.1.0",
 		"mocha": "^10.1.0",
-		"pnpm": "^7.15.0",
+		"pnpm": "^7.18.1",
 		"rimraf": "^3.0.2",
 		"tsx": "^3.12.1",
 		"typescript": "^4.8.4",
-		"vitepress": "1.0.0-alpha.29",
+		"vitepress": "1.0.0-alpha.30",
 		"vue": "^3.2.45"
 	},
 	"dependencies": {
