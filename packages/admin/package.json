@@ -1,6 +1,6 @@
 {
 	"name": "@fireman/admin",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"description": "Comprehensive firestore helper functions for the admin (nodejs) sdk",
 	"main": "index.js",
 	"types": "index.d.ts",
