@@ -4,7 +4,8 @@
 	"description": "Comprehensive firestore helper functions",
 	"main": "index.js",
 	"types": "index.d.ts",
-	"packageManager": "pnpm@7.1.7",
+	"type": "module",
+	"packageManager": "pnpm@8.6.12",
 	"scripts": {
 		"lint": "tslint --project tsconfig.json",
 		"build:packages": "pnpm run -r build",
@@ -35,22 +36,22 @@
 		"access": "public"
 	},
 	"devDependencies": {
-		"@types/chai": "^4.3.4",
+		"@types/chai": "^4.3.5",
 		"@types/mocha": "^10.0.1",
 		"chai": "^4.3.7",
-		"fast-glob": "^3.2.12",
-		"fs-extra": "^10.1.0",
+		"fast-glob": "^3.3.1",
+		"fs-extra": "^11.1.1",
 		"mocha": "^10.2.0",
-		"pnpm": "^7.27.0",
-		"rimraf": "^3.0.2",
-		"tsx": "^3.12.3",
-		"typescript": "^4.9.5",
-		"vitepress": "1.0.0-alpha.46",
-		"vue": "^3.2.47"
+		"pnpm": "^8.6.12",
+		"rimraf": "^5.0.1",
+		"tsx": "^3.12.7",
+		"typescript": "^5.1.6",
+		"vitepress": "^1.0.0-rc.4",
+		"vue": "^3.3.4"
 	},
 	"dependencies": {
-		"consola": "^2.15.3",
-		"firebase": "^9.17.1",
-		"firebase-admin": "^11.5.0"
+		"consola": "^3.2.3",
+		"firebase": "^10.2.0",
+		"firebase-admin": "^11.10.1"
 	}
 }

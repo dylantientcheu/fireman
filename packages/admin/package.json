@@ -4,6 +4,7 @@
 	"description": "Comprehensive firestore helper functions for the admin (nodejs) sdk",
 	"main": "index.js",
 	"types": "index.d.ts",
+	"type": "module",
 	"homepage": "https://fireman-fns.netlify.app/",
 	"author": "Dylan Tientcheu <https://github.com/blurdylan>",
 	"repository": {
