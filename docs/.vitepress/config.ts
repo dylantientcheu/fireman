@@ -83,6 +83,14 @@ export default defineConfig({
 			message: "Released under the MIT License.",
 			copyright: "Copyright © 2022-present Dylan Tientcheu",
 		},
+		search: {
+			provider: 'algolia',
+			options: {
+				appId: 'LVYVU7086K',
+				apiKey: '81c20d87fe5aeca4e4d2976257c1ac7a',
+				indexName: 'fireman-fns'
+			}
+		},
 		socialLinks: [
 			{ icon: "github", link: "https://github.com/blurdylan/fireman" },
 		],
